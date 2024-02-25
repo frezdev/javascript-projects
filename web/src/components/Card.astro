@@ -1,61 +1,132 @@
 ---
+import Pill from "./Pill.astro";
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+  title: string;
+  body: string;
+  href: string;
 }
 
 const { href, title, body } = Astro.props;
 ---
 
 <li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
+  <article>
+    <header>
+      <span>#1</span>
+      <figure>
+        <img src="http://localhost:4321/favicon.svg" alt="" />
+      </figure>
+    </header>
+    <div class="info-container">
+      <section class="info">
+        <h2>Título del proyecto</h2>
+        <p>Esta es una breve descripción del proyecto</p>
+      </section>
+
+      <div>
+        <section class="tags">
+          <Pill>JavaScript</Pill>
+          <Pill>CSS</Pill>
+          <Pill>HTML</Pill>
+        </section>
+
+        <section class="links">
+          <a href="">Código</a>
+          <a href="">Demo</a>
+        </section>
+      </div>
+    </div>
+  </article>
 </li>
 <style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
+  .link-card {
+    list-style: none;
+    background-image: none;
+    background-size: 400%;
+    background-position: 100%;
+    transition: background-position 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+    & article {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+    }
+  }
+
+  header {
+    position: relative;
+
+    & span {
+      position: absolute;
+      font-size: 45px;
+      color: #ffffff;
+      font-weight: 700;
+      top: -15px;
+      left: -15px;
+      transform: rotate(-15deg);
+      line-height: 1;
+      text-shadow: 0 0 12px rgb(var(--accent-dark));
+    }
+
+    & figure {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 7px 7px 0 0;
+
+      & img {
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
+        object-position: center;
+      }
+    }
+  }
+
+  .info-container {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    & .info {
+      & h2 {
+        font-weight: 700;
+      }
+
+      & p {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .links {
+    display: flex;
+    gap: 10px;
+
+    & a {
+      color: #fff;
+      padding: 5px 12px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 1px solid #fff;
+      text-decoration: none;
+    }
+  }
+  /* .link-card:is(:hover, :focus-within) {
+    background-position: 0;
+    box-shadow: 0 0 15px rgb(var(--accent));
+    background-image: var(--accent-gradient);
+  }
+  .link-card:is(:hover, :focus-within) h2 {
+    color: rgb(var(--accent-light));
+  } */
 </style>

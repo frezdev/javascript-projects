@@ -22,22 +22,27 @@ const { title, description } = Astro.props;
   </body>
 </html>
 <style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   :root {
-    --accent: 231, 255, 11;
-    --accent-light: 254 255 227;
-    --accent-dark: 251, 255, 0;
+    --bg: #23262d;
+    --accent: 247 223 30;
+    --accent-light: 255 252 232;
+    --accent-dark: 12 11 0;
     --accent-gradient: linear-gradient(
       45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      rgb(var(--accent-light)) 60%
+      rgb(var(--accent) / 0.5),
+      transparent 30%,
+      transparent 60%
     );
   }
   html {
     font-family: system-ui, sans-serif;
-    background: #13151a;
+    background: var(--bg);
     background-size: 224px;
-    background: linear-gradient(rgb());
   }
   code {
     font-family:
