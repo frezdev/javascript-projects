@@ -1,38 +1,42 @@
 ---
 import Pill from "./Pill.astro";
 interface Props {
+  num: number;
+  repo: string;
+  demo: string;
+  tags: string[];
   title: string;
-  body: string;
-  href: string;
+  image: string;
+  description: string;
 }
 
-const { href, title, body } = Astro.props;
+const { repo, demo, title, description, image, tags, num } = Astro.props;
 ---
 
 <li class="link-card">
   <article>
     <header>
-      <span>#1</span>
+      <span>#{num}</span>
       <figure>
-        <img src="http://localhost:4321/favicon.svg" alt="" />
+        <a href={demo} target="_blank">
+          <img src={image} alt={description} />
+        </a>
       </figure>
     </header>
     <div class="info-container">
       <section class="info">
-        <h2>Título del proyecto</h2>
-        <p>Esta es una breve descripción del proyecto</p>
+        <h2>{title}</h2>
+        <p>{description}</p>
       </section>
 
       <div>
         <section class="tags">
-          <Pill>JavaScript</Pill>
-          <Pill>CSS</Pill>
-          <Pill>HTML</Pill>
+          {tags.map((item) => <Pill>{item}</Pill>)}
         </section>
 
         <section class="links">
-          <a href="">Código</a>
-          <a href="">Demo</a>
+          <a href={repo} target="_blank">Código</a>
+          <a href={demo} target="_blank">Demo</a>
         </section>
       </div>
     </div>
@@ -55,6 +59,10 @@ const { href, title, body } = Astro.props;
 
   header {
     position: relative;
+    transition: scale 0.15s;
+    &:hover {
+      scale: 1.05;
+    }
 
     & span {
       position: absolute;
@@ -71,7 +79,7 @@ const { href, title, body } = Astro.props;
     & figure {
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      border-radius: 7px 7px 0 0;
+      border-radius: 7px;
 
       & img {
         width: 100%;
@@ -104,6 +112,7 @@ const { href, title, body } = Astro.props;
 
   .tags {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 15px;
   }

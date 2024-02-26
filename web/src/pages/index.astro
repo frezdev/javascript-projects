@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import { projects } from "../utils/projects.js";
 ---
 
 <Layout title="JavaScript Projects" description="">
@@ -11,9 +12,7 @@ import Card from "../components/Card.astro";
     <h1><span class="text-gradient">JavaScript</span> Projects</h1>
 
     <ul role="list" class="link-card-grid">
-      <Card body="" href="" title="" />
-      <Card body="" href="" title="" />
-      <Card body="" href="" title="" />
+      {projects.map((project, index) => <Card {...project} num={index + 1} />)}
     </ul>
   </main>
 </Layout>
@@ -100,7 +99,7 @@ import Card from "../components/Card.astro";
   }
   .link-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
     padding: 0;
   }
