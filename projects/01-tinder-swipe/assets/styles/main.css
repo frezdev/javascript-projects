@@ -21,8 +21,8 @@ body {
 main {
   background: url('../../iphone.webp') no-repeat;
   background-size: contain;
-  width: 320px;
-  height: 640px;
+  width: 306px;
+  height: 100dvh;
   display: flex;
   position: relative;
 }
@@ -50,7 +50,7 @@ section {
 header {
   display: flex;
   justify-content: start;
-  padding-inline: 10px;
+  padding-inline: 16px;
 
   & img {
     width: 24px;
@@ -69,8 +69,9 @@ header {
     line-height: 1.2;
     place-items: center;
     place-content: center;
-    color: #302e2e;
+    color: #7f7f7f;
     font-weight: 400;
+    font-size: 14px;
   }
 
   & .cards {
@@ -169,9 +170,9 @@ header {
 footer {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
+  gap: 6px;
   place-items: center;
-  padding-inline: 10px;
+  padding-inline: 8px;
 
   & button {
     background: url('../../tinder-icons.webp') no-repeat;
@@ -183,7 +184,7 @@ footer {
     border-radius: 50%;
     border: none;
     transition: scale .3s ease;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(73, 73, 73, 0.3);
     background-position-y: -3px;
 
     &:hover {
