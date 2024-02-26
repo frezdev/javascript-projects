@@ -23,6 +23,7 @@ main {
   background-size: contain;
   width: 306px;
   height: 100dvh;
+  max-height: 614px;
   display: flex;
   position: relative;
 }
@@ -220,6 +221,7 @@ footer {
     background: none;
     width: 100vw;
     height: 100dvh;
+    max-height: fit-content;
   }
   section {
     border-radius: 0;
