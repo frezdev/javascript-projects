@@ -1,0 +1,60 @@
+---
+import GithubIcon from "../icons/Github.astro";
+import LinkedinIcon from "../icons/Linkedin.astro";
+import GlobalIcon from "../icons/Global.astro";
+---
+
+<footer>
+  <ul>
+    <li>
+      <a href="http://github.com/frezdev" target="_blank">
+        <GithubIcon />
+        Github
+      </a>
+    </li>
+    <li>
+      <a href="http://linkedin.com/in/frezdev" target="_blank">
+        <LinkedinIcon />
+        LinkedIn
+      </a>
+    </li>
+    <li>
+      <a href="http://frezdev.netlify.app" target="_blank">
+        <GlobalIcon />
+        Portfolio
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<style>
+  footer {
+    margin-top: 5rem;
+    display: grid;
+    place-content: center;
+    border-top: 1px solid rgb(var(--accent-light) / 0.1);
+    color: rgb(var(--accent-light));
+    height: 30dvh;
+
+    & ul {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+
+      & li {
+        text-decoration: none;
+
+        & a {
+          color: rgb(var(--accent-light) / 0.6);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+      }
+    }
+  }
+</style>

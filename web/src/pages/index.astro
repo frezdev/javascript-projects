@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import Footer from "../components/Footer.astro";
 import { projects } from "../utils/projects.js";
 ---
 
@@ -8,13 +9,15 @@ import { projects } from "../utils/projects.js";
   <div class="radial-gradient-bg">
     <div></div>
   </div>
+  <header>
+    <h1><span class="title">JavaScript</span> Projects</h1>
+  </header>
   <main>
-    <h1><span class="text-gradient">JavaScript</span> Projects</h1>
-
-    <ul role="list" class="link-card-grid">
+    <ul role="list" class="cards-grid">
       {projects.map((project, index) => <Card {...project} num={index + 1} />)}
     </ul>
   </main>
+  <Footer />
 </Layout>
 
 <style>
@@ -36,6 +39,25 @@ import { projects } from "../utils/projects.js";
       );
     }
   }
+
+  header {
+    margin: 4rem 0;
+
+    & h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      color: rgb(var(--accent-light));
+      text-shadow: rgb(0, 0, 0) 0px 0px 20px;
+      /* color: var(--accent-light); */
+      /* -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      background-image: var(--accent-gradient); */
+    }
+  }
+
   main {
     margin: auto;
     padding: 0 1rem;
@@ -44,60 +66,14 @@ import { projects } from "../utils/projects.js";
     color: white;
     font-size: 20px;
     line-height: 1.6;
+    margin-bottom: 1em;
   }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translatex(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
-  }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin: 1em 0;
-    color: rgb(var(--accent-light));
-    text-shadow: rgb(0, 0, 0) 0px 0px 20px;
-    /* color: var(--accent-light); */
-    /* -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 
-    background-image: var(--accent-gradient); */
-  }
-  .text-gradient {
+  .title {
     color: rgb(var(--accent));
-    /* background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-    /* background-size: 400%;
-    background-position: 0%; */
   }
-  .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(
-      rgba(var(--accent-dark), 66%),
-      rgba(var(--accent-dark), 33%)
-    );
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-  .instructions code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent-light));
-  }
-  .link-card-grid {
+
+  .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
