@@ -29,21 +29,23 @@ import GlobalIcon from "../icons/Global.astro";
 
 <style>
   footer {
+    margin-inline: auto;
     margin-top: 5rem;
-    display: grid;
-    place-content: center;
+    display: flex;
+    padding-inline: 1rem;
     border-top: 1px solid rgb(var(--accent-light) / 0.1);
     color: rgb(var(--accent-light));
     height: 30dvh;
+    justify-content: center;
+    width: 800px;
+    max-width: calc(100% - 2rem);
 
     & ul {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      justify-content: center;
+      display: grid;
       list-style: none;
-      grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
-
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+      place-items: center;
       & li {
         text-decoration: none;
 
