@@ -1,4 +1,5 @@
 ---
+import Image from "astro/components/Image.astro";
 import Pill from "./Pill.astro";
 interface Props {
   num: number;
@@ -19,7 +20,7 @@ const { repo, demo, title, description, image, tags, num } = Astro.props;
       <span>#{num}</span>
       <figure>
         <a href={demo} target="_blank">
-          <img src={image} alt={description} />
+          <Image width={100} height={100} src={image} alt={description} />
         </a>
       </figure>
     </header>
@@ -80,9 +81,11 @@ const { repo, demo, title, description, image, tags, num } = Astro.props;
       aspect-ratio: 16 / 9;
       overflow: hidden;
       border-radius: 7px;
+      background: rgb(var(--accent-light) / 0.1);
 
       & img {
         width: 100%;
+        height: fit-content;
         object-fit: cover;
         aspect-ratio: 16 / 9;
         object-position: center;
