@@ -1,6 +1,8 @@
 ---
 import Image from "astro/components/Image.astro";
 import Pill from "./Pill.astro";
+import GithubIcon from "../icons/Github.astro";
+import GlobalIcon from "../icons/Global.astro";
 interface Props {
   num: number;
   repo: string;
@@ -36,8 +38,14 @@ const { repo, demo, title, description, image, tags, num } = Astro.props;
         </section>
 
         <section class="links">
-          <a href={repo} target="_blank">Código</a>
-          <a href={demo} target="_blank">Demo</a>
+          <a href={repo} target="_blank">
+            <GithubIcon />
+            Código
+          </a>
+          <a href={demo} target="_blank">
+            <GlobalIcon />
+            Demo
+          </a>
         </section>
       </div>
     </div>
@@ -119,7 +127,7 @@ const { repo, demo, title, description, image, tags, num } = Astro.props;
     display: flex;
     flex-wrap: wrap;
     gap: 5px 8px;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     color: rgb(var(--accent-light) / 0.8);
   }
 
@@ -130,10 +138,31 @@ const { repo, demo, title, description, image, tags, num } = Astro.props;
     & a {
       color: rgb(var(--accent-light));
       padding: 5px 12px;
-      font-size: 18px;
-      border-radius: 10px;
-      border: 1px solid #fff;
+      font-size: 16px;
+      border-radius: 5px;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      transition: 0.2s ease-out;
+
+      &:nth-child(1) {
+        border: 1px solid rgb(182, 182, 182);
+        color: rgb(182, 182, 182);
+
+        &:hover {
+          background-color: rgba(133, 133, 133, 0.144);
+        }
+      }
+      &:nth-child(2) {
+        border: 1px solid rgb(34, 156, 255);
+        color: rgb(55, 165, 255);
+
+        &:hover {
+          background-color: rgba(55, 165, 255, 0.137);
+        }
+      }
     }
   }
   /* .link-card:is(:hover, :focus-within) {
